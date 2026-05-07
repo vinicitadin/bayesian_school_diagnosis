@@ -1,0 +1,85 @@
+# =========================
+# Visual Studio / .NET
+# =========================
+
+## Build results
+[Bb]in/
+[Oo]bj/
+[Dd]ebug*/
+[Rr]elease*/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+[Ll]og/
+*.log
+
+## Visual Studio cache / workspace
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+
+## MSBuild / tooling
+*.rsuser
+*.pdb
+*.cache
+*.tlog
+*.lastbuildstate
+
+## Packages
+packages/
+!NuGet.config
+
+## Test results
+[Tt]est[Rr]esult*/
+*.trx
+
+## Publish / artifacts
+*.publishproj
+[Pp]ublish/
+AppPackages/
+BundleArtifacts/
+artifacts/
+
+## ClickOnce
+*.application
+*.deploy
+
+## Resharper / Rider / dotCover
+_ReSharper*/
+*.DotSettings.user
+.idea/
+*.sln.iml
+*.iws
+*.ipr
+
+## Windows / OS junk
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+## Installer / setup outputs (se existirem)
+*.msi
+*.msp
+*.msm
+
+## Coverage
+coverage/
+*.coverage
+*.coveragexml
+
+## Temporary files
+*.tmp
+*.bak
+*.old
+
+# =========================
+# WPF-specific
+# =========================
+*.g.cs
+*.g.i.cs
+*.baml
