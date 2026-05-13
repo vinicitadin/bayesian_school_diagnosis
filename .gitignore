@@ -83,3 +83,7 @@ coverage/
 *.g.cs
 *.g.i.cs
 *.baml
+
+## Netica (Norsys) - third-party proprietary binary
+**/Netica.dll
+**/Netica*.dll
