@@ -1,0 +1,145 @@
+﻿<Window x:Class="BayesianDiagnosis.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Diagnóstico de Desempenho Escolar"
+        Width="1000" Height="750"
+        WindowStartupLocation="CenterScreen"
+        FontFamily="Segoe UI"
+        Background="#F5F7FA">
+
+    <Window.Resources>
+        <Style TargetType="TextBlock" x:Key="LabelStyle">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Foreground" Value="#34495E"/>
+            <Setter Property="Margin" Value="0,0,0,5"/>
+        </Style>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Margin" Value="0,0,0,20"/>
+            <Setter Property="BorderBrush" Value="#BDC3C7"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="IsEditable" Value="True"/>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#3498DB"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Height" Value="45"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="8">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#2980B9"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Border Background="White" Margin="40" CornerRadius="12">
+            <Border.Effect>
+                <DropShadowEffect Color="Black" Opacity="0.1" BlurRadius="20" ShadowDepth="5"/>
+            </Border.Effect>
+
+            <Grid Margin="40">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0" Margin="0,0,0,30" HorizontalAlignment="Center">
+                    <TextBlock Text="Sistema de Diagnóstico Escolar" FontSize="28" FontWeight="Bold" Foreground="#2C3E50" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Insira as características do aluno para calcular a probabilidade de desempenho via rede Bayesiana." FontSize="14" Foreground="#7F8C8D" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+                </StackPanel>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0">
+                        <TextBlock Text="Horas de Estudo" Style="{StaticResource LabelStyle}"/>
+                        <ComboBox Text="{Binding StudyHours, UpdateSourceTrigger=PropertyChanged}">
+                            <ComboBoxItem Content="alta"/>
+                            <ComboBoxItem Content="baixa"/>
+                        </ComboBox>
+
+                        <TextBlock Text="Qualidade do Sono" Style="{StaticResource LabelStyle}"/>
+                        <ComboBox Text="{Binding SleepQuality, UpdateSourceTrigger=PropertyChanged}">
+                            <ComboBoxItem Content="boa"/>
+                            <ComboBoxItem Content="ruim"/>
+                        </ComboBox>
+
+                        <TextBlock Text="Frequência nas Aulas" Style="{StaticResource LabelStyle}"/>
+                        <ComboBox Text="{Binding ClassAttendance, UpdateSourceTrigger=PropertyChanged}">
+                            <ComboBoxItem Content="alta"/>
+                            <ComboBoxItem Content="baixa"/>
+                        </ComboBox>
+
+                        <TextBlock Text="Uso de Redes Sociais" Style="{StaticResource LabelStyle}"/>
+                        <ComboBox Text="{Binding SocialMediaUse, UpdateSourceTrigger=PropertyChanged}">
+                            <ComboBoxItem Content="moderado"/>
+                            <ComboBoxItem Content="excessivo"/>
+                        </ComboBox>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="2">
+                        <TextBlock Text="Nível de Estresse" Style="{StaticResource LabelStyle}"/>
+                        <ComboBox Text="{Binding StressLevel, UpdateSourceTrigger=PropertyChanged}">
+                            <ComboBoxItem Content="baixo"/>
+                            <ComboBoxItem Content="alto"/>
+                        </ComboBox>
+
+                        <TextBlock Text="Alimentação" Style="{StaticResource LabelStyle}"/>
+                        <ComboBox Text="{Binding Diet, UpdateSourceTrigger=PropertyChanged}">
+                            <ComboBoxItem Content="saudavel"/>
+                            <ComboBoxItem Content="ruim"/>
+                        </ComboBox>
+
+                        <TextBlock Text="Ambiente de Estudo" Style="{StaticResource LabelStyle}"/>
+                        <ComboBox Text="{Binding StudyEnvironment, UpdateSourceTrigger=PropertyChanged}">
+                            <ComboBoxItem Content="adequado"/>
+                            <ComboBoxItem Content="inadequado"/>
+                        </ComboBox>
+
+                        <TextBlock Text="Motivação" Style="{StaticResource LabelStyle}"/>
+                        <ComboBox Text="{Binding Motivation, UpdateSourceTrigger=PropertyChanged}">
+                            <ComboBoxItem Content="alta"/>
+                            <ComboBoxItem Content="baixa"/>
+                        </ComboBox>
+                    </StackPanel>
+                </Grid>
+
+                <StackPanel Grid.Row="2" Margin="0,20,0,0">
+                    <Button Content="Calcular Desempenho" Command="{Binding CalculateCommand}" Width="250" HorizontalAlignment="Center"/>
+
+                    <Border Background="#E8F8F5" BorderBrush="#1ABC9C" BorderThickness="1" CornerRadius="8" Margin="0,20,0,0" Padding="15">
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                            <TextBlock Text="Resultado da Inferência:" FontSize="14" FontWeight="SemiBold" Foreground="#16A085" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding Result}" FontSize="18" FontWeight="Bold" Foreground="#2C3E50" HorizontalAlignment="Center" Margin="0,5,0,0" TextWrapping="Wrap"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
