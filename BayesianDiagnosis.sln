@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BayesianDiagnosis", "BayesianDiagnosis\BayesianDiagnosis.csproj", "{B260F980-2647-4A71-A1F0-1D950A373BA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BayesianDiagnosis.Netica", "BayesianDiagnosis.Netica\BayesianDiagnosis.Netica.csproj", "{39A8FB15-D896-4F4D-A274-F052A56E174C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B260F980-2647-4A71-A1F0-1D950A373BA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B260F980-2647-4A71-A1F0-1D950A373BA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B260F980-2647-4A71-A1F0-1D950A373BA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B260F980-2647-4A71-A1F0-1D950A373BA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39A8FB15-D896-4F4D-A274-F052A56E174C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39A8FB15-D896-4F4D-A274-F052A56E174C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39A8FB15-D896-4F4D-A274-F052A56E174C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39A8FB15-D896-4F4D-A274-F052A56E174C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A1D6273F-CDAE-4CA7-B417-0FF5F748C6D9}
+	EndGlobalSection
+EndGlobal
