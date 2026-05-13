@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="BayesianDiagnosis.Netica\**" />
+    <EmbeddedResource Remove="BayesianDiagnosis.Netica\**" />
+    <None Remove="BayesianDiagnosis.Netica\**" />
+    <Page Remove="BayesianDiagnosis.Netica\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BayesianDiagnosis.Netica\BayesianDiagnosis.Netica.csproj" />
+  </ItemGroup>
+
+</Project>
