@@ -1,0 +1,207 @@
+// ~->[DNET-1]->~
+
+// File created by an unlicensed user using Netica 7.01 on May 07, 2026 at 00:34:51 UTC.
+
+bnet diagnosis_network {
+AutoCompile = TRUE;
+autoupdate = TRUE;
+whenchanged = 1778114091;
+
+visual V1 {
+	defdispform = BELIEFBARS;
+	nodelabeling = TITLE;
+	NodeMaxNumEntries = 50;
+	nodefont = font {shape= "Arial"; size= 9;};
+	linkfont = font {shape= "Arial"; size= 9;};
+	ShowLinkStrengths = 1;
+	windowposn = (17, 118, 1217, 765);
+	resolution = 72;
+	drawingbounds = (1167, 933);
+	showpagebreaks = FALSE;
+	usegrid = TRUE;
+	gridspace = (6, 6);
+	NodeSet Node {BuiltIn = 1; Color = 0x00e1e1e1;};
+	NodeSet Nature {BuiltIn = 1; Color = 0x00f8eed2;};
+	NodeSet Deterministic {BuiltIn = 1; Color = 0x00d3caa6;};
+	NodeSet Finding {BuiltIn = 1; Color = 0x00c8c8c8;};
+	NodeSet Constant {BuiltIn = 1; Color = 0x00ffffff;};
+	NodeSet ConstantValue {BuiltIn = 1; Color = 0x00ffffb4;};
+	NodeSet Utility {BuiltIn = 1; Color = 0x00ffbdbd;};
+	NodeSet Decision {BuiltIn = 1; Color = 0x00dee8ff;};
+	NodeSet Documentation {BuiltIn = 1; Color = 0x00f0fafa;};
+	NodeSet Title {BuiltIn = 1; Color = 0x00ffffff;};
+	PrinterSetting A {
+		margins = (1270, 1270, 1270, 1270);
+		};
+	};
+
+node desempenho {
+	discrete = TRUE;
+	states = (bom, medio, ruim);
+	kind = NATURE;
+	chance = CHANCE;
+	parents = ();
+	probs = 
+		// bom          medio        ruim         
+		  (0.4,         0.35,        0.25);
+	whenchanged = 1778108691;
+	belief = (0.4, 0.35, 0.25);
+	visual V1 {
+		center = (570, 66);
+		height = 8;
+		};
+	};
+
+node horas_estudo {
+	discrete = TRUE;
+	states = (alta, baixa);
+	kind = NATURE;
+	chance = CHANCE;
+	parents = (desempenho);
+	probs = 
+		// alta         baixa         // desempenho 
+		  (0.7,         0.3,          // bom        
+		   0.4,         0.6,          // medio      
+		   0.2,         0.8);         // ruim       ;
+	whenchanged = 1778108678;
+	belief = (0.47, 0.53);
+	visual V1 {
+		center = (150, 192);
+		height = 1;
+		};
+	};
+
+node qualidade_sono {
+	discrete = TRUE;
+	states = (boa, ruim);
+	kind = NATURE;
+	chance = CHANCE;
+	parents = (desempenho);
+	probs = 
+		// boa          ruim          // desempenho 
+		  (0.65,        0.35,         // bom        
+		   0.45,        0.55,         // medio      
+		   0.2,         0.8);         // ruim       ;
+	whenchanged = 1778108680;
+	belief = (0.4675, 0.5325);
+	visual V1 {
+		center = (270, 258);
+		height = 2;
+		};
+	};
+
+node frequencia {
+	discrete = TRUE;
+	states = (alta, baixa);
+	kind = NATURE;
+	chance = CHANCE;
+	parents = (desempenho);
+	probs = 
+		// alta         baixa         // desempenho 
+		  (0.8,         0.2,          // bom        
+		   0.5,         0.5,          // medio      
+		   0.3,         0.7);         // ruim       ;
+	whenchanged = 1778108680;
+	belief = (0.57, 0.43);
+	visual V1 {
+		center = (318, 330);
+		height = 9;
+		};
+	};
+
+node uso_redes_sociais {
+	discrete = TRUE;
+	states = (moderado, excessivo);
+	kind = NATURE;
+	chance = CHANCE;
+	parents = (desempenho);
+	probs = 
+		// moderado     excessivo     // desempenho 
+		  (0.6,         0.4,          // bom        
+		   0.4,         0.6,          // medio      
+		   0.2,         0.8);         // ruim       ;
+	whenchanged = 1778108681;
+	belief = (0.43, 0.57);
+	visual V1 {
+		center = (486, 330);
+		height = 3;
+		};
+	};
+
+node nivel_estresse {
+	discrete = TRUE;
+	states = (baixo, alto);
+	kind = NATURE;
+	chance = CHANCE;
+	parents = (desempenho);
+	probs = 
+		// baixo        alto          // desempenho 
+		  (0.7,         0.3,          // bom        
+		   0.4,         0.6,          // medio      
+		   0.2,         0.8);         // ruim       ;
+	whenchanged = 1778108682;
+	belief = (0.47, 0.53);
+	visual V1 {
+		center = (660, 330);
+		height = 4;
+		};
+	};
+
+node alimentacao {
+	discrete = TRUE;
+	states = (saudavel, ruim);
+	kind = NATURE;
+	chance = CHANCE;
+	parents = (desempenho);
+	probs = 
+		// saudavel     ruim          // desempenho 
+		  (0.75,        0.25,         // bom        
+		   0.5,         0.5,          // medio      
+		   0.3,         0.7);         // ruim       ;
+	whenchanged = 1778108684;
+	belief = (0.55, 0.45);
+	visual V1 {
+		center = (828, 330);
+		height = 5;
+		};
+	};
+
+node ambiente_de_estudo {
+	discrete = TRUE;
+	states = (adequado, inadequado);
+	kind = NATURE;
+	chance = CHANCE;
+	parents = (desempenho);
+	probs = 
+		// adequado     inadequado    // desempenho 
+		  (0.8,         0.2,          // bom        
+		   0.55,        0.45,         // medio      
+		   0.3,         0.7);         // ruim       ;
+	whenchanged = 1778108685;
+	belief = (0.5875, 0.4125);
+	visual V1 {
+		center = (930, 270);
+		height = 6;
+		};
+	};
+
+node motivacao {
+	discrete = TRUE;
+	states = (alta, baixa);
+	kind = NATURE;
+	chance = CHANCE;
+	parents = (desempenho);
+	probs = 
+		// alta         baixa         // desempenho 
+		  (0.85,        0.15,         // bom        
+		   0.5,         0.5,          // medio      
+		   0.2,         0.8);         // ruim       ;
+	whenchanged = 1778108686;
+	belief = (0.565, 0.435);
+	visual V1 {
+		center = (1026, 204);
+		height = 7;
+		};
+	};
+ElimOrder = (horas_estudo, qualidade_sono, frequencia, uso_redes_sociais, nivel_estresse, alimentacao, ambiente_de_estudo, desempenho, motivacao);
+};
